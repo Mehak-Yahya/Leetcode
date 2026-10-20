@@ -1,2 +1,7 @@
-# remove k digits from array
-# Example 1
+# Input: s = "4325043", k = 3
+Output: "2043"
+Explanation: By removing three digits (4, 3, 5) while preserving the order of the remaining digits, we obtain "2043", which is the smallest possible number.
+
+Input: s = "765028321", k = 5
+Output: "221"
+Explanation: Removing five digits (7, 6, 5, 8, 3) results in "0221". Since the number should not contain leading zeros, the final answer is "221".
