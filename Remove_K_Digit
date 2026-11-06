@@ -5,3 +5,42 @@ Explanation: By removing three digits (4, 3, 5) while preserving the order of th
 Input: s = "765028321", k = 5
 Output: "221"
 Explanation: Removing five digits (7, 6, 5, 8, 3) results in "0221". Since the number should not contain leading zeros, the final answer is "221".
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+string removeKdig(string s, int k)
+{
+    while (k--)
+    {
+        int i = 0;
+
+        // Find first digit greater than next
+        while (i < s.size() - 1 && s[i] <= s[i + 1])
+        {
+            i++;
+        }
+
+        // Remove that digit
+        s.erase(i, 1);
+    }
+
+    // Remove leading zeros
+    int i = 0;
+    while (i < s.size() && s[i] == '0')
+        i++;
+
+    s = s.substr(i);
+
+    return s.empty() ? "0" : s;
+}
+
+int main()
+{
+    string s = "765028321";
+    int k = 5;
+    cout << removeKdig(s, k);
+    return 0;
+}
